@@ -29,7 +29,7 @@ namespace ManagedFbx
 	public ref class NodeAttribute
 	{
 	public:
-		property_r(NodeAttributeType^, AttributeType);
+		property_r(NodeAttributeType, AttributeType);
 		property_rw(string^, Name);
 
 	internal:

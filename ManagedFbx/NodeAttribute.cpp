@@ -8,7 +8,7 @@ NodeAttribute::NodeAttribute(FbxNodeAttribute *nativeAttr)
 	m_nativeAttribute = nativeAttr;
 }
 
-NodeAttributeType^ NodeAttribute::AttributeType::get()
+NodeAttributeType NodeAttribute::AttributeType::get()
 {
 	return (NodeAttributeType)m_nativeAttribute->GetAttributeType();
 }
