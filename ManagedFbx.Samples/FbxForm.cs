@@ -6,10 +6,9 @@ using ManagedFbx;
 
 public partial class FbxForm : Form
 {
-	public FbxForm(Scene scene)
+	public FbxForm()
 	{
 		InitializeComponent();
-		Add(scene.RootNode, null);
 	}
 
 	public void Add(SceneNode node, TreeNode parentNode)
@@ -27,9 +26,6 @@ public partial class FbxForm : Form
 			Add(sub, item);
 		}
 	}
-
-
-
 
 	private void OnTreeSelect(object sender, TreeViewEventArgs e)
 	{
@@ -87,6 +83,20 @@ public partial class FbxForm : Form
 		}
 
 		uxNodeInfo.Text = builder.ToString();
+	}
+
+	private void LoadFile(object sender, EventArgs e)
+	{
+		var dialog = new OpenFileDialog();
+		dialog.Filter = "FBX files (*.fbx)|*.fbx";
+
+		if(dialog.ShowDialog() == DialogResult.OK)
+		{
+			var scenePath = dialog.FileName;
+			var scene = Scene.Import(scenePath);
+			uxFbxTree.Nodes.Clear();
+			Add(scene.RootNode, null);
+		}
 	}
 }
 
