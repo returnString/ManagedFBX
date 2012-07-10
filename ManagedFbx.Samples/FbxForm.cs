@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using ManagedFbx;
 
@@ -27,69 +28,72 @@ public partial class FbxForm : Form
 		}
 	}
 
-	private void Append(string format, params object[] args)
-	{
-		uxNodeInfo.AppendText(string.Format(format, args));
-		Newline();
-	}
 
-	private void Newline(int count = 1)
-	{
-		for(var i = 0; i < count; i++)
-			uxNodeInfo.AppendText(Environment.NewLine);
-	}
+
 
 	private void OnTreeSelect(object sender, TreeViewEventArgs e)
 	{
 		var node = e.Node.Tag as SceneNode;
 
-		uxNodeInfo.Clear();
-
 		if(node == null)
 			return;
 
-		var newline = Environment.NewLine;
+		var builder = new StringBuilder();
 
-		Append("Position: {0}", node.Position);
-		Append("Rotation: {0}", node.Rotation);
-		Append("Scale: {0}", node.Scale);
+		Action NewLine = () => builder.Append(Environment.NewLine);
 
-		Newline();
+		builder.Append("Position: {0}", node.Position);
+		builder.Append("Rotation: {0}", node.Rotation);
+		builder.Append("Scale: {0}", node.Scale);
 
-		Append("Found {0} attribute(s)", node.Attributes.Count());
+		NewLine();
+
+		builder.Append("Found {0} attribute(s)", node.Attributes.Count());
 
 		foreach(var attr in node.Attributes)
 		{
-			Append(attr.AttributeType.ToString());
-			Newline();
+			NewLine();
+			builder.Append("Attribute type: {0}", attr.AttributeType.ToString());
 
 			switch(attr.AttributeType)
 			{
 				case NodeAttributeType.Mesh:
 					{
 						var mesh = node.Model;
-						Append("Found {0} polygons", mesh.Polygons.Length);
-						Newline();
+						builder.Append("Found {0} polygons", mesh.Polygons.Length);
+						NewLine();
 
-						foreach(var poly in mesh.Polygons)
+						for(var i = 0; i < mesh.Polygons.Length; i++)
 						{
-							foreach(var index in poly.Indices)
-								uxNodeInfo.AppendText(index + " ");
+							var str = string.Empty;
+							foreach(var index in mesh.Polygons[i].Indices)
+								str += "\t" + index;
 
-							Newline();
+							builder.Append("{0}:{1}", i, str);
 						}
 
-						Newline();
-						Append("Found {0} vertices", mesh.Vertices.Length);
-						Newline();
+						NewLine();
+						builder.Append("Found {0} vertices", mesh.Vertices.Length);
+						NewLine();
 
-						foreach(var vertex in mesh.Vertices)
+						for(var i = 0; i < mesh.Vertices.Length; i++)
 						{
-							Append(vertex.ToString());
+							var vertex =  mesh.Vertices[i];
+							builder.Append("{0}:\t{1}\t{2}\t{3}", i, Math.Round(vertex.X, 2), Math.Round(vertex.Y, 2), Math.Round(vertex.Z, 2));
 						}
 					}
 					break;
 			}
 		}
+
+		uxNodeInfo.Text = builder.ToString();
+	}
+}
+
+public static class StringBuilderExtensions
+{
+	public static void Append(this StringBuilder builder, string format, params object[] args)
+	{
+		builder.AppendLine(string.Format(format, args));
 	}
 }

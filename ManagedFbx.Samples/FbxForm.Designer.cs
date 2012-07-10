@@ -52,6 +52,7 @@
 			this.uxNodeInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.uxNodeInfo.Size = new System.Drawing.Size(565, 619);
 			this.uxNodeInfo.TabIndex = 3;
+			this.uxNodeInfo.WordWrap = false;
 			// 
 			// FbxForm
 			// 
