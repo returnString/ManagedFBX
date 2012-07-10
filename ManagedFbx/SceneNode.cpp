@@ -78,3 +78,8 @@ Vector3 SceneNode::Scale::get()
 {
 	return Vector3(m_nativeNode->LclScaling.Get());
 }
+
+Mesh ^SceneNode::Model::get()
+{
+	return gcnew Mesh(m_nativeNode->GetMesh());
+}

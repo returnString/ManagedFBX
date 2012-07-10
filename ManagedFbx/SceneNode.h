@@ -1,6 +1,7 @@
 #pragma once
 
 #include "NodeAttribute.h"
+#include "Mesh.h"
 
 using namespace System::Collections::Generic;
 
@@ -16,6 +17,8 @@ namespace ManagedFbx
 		property_rw(Vector3, Position);
 		property_rw(Vector3, Rotation);
 		property_rw(Vector3, Scale);
+
+		property_r(Mesh^, Model);
 
 		void AddChild(SceneNode ^node);
 

@@ -38,6 +38,4 @@ namespace ManagedFbx
 	private:
 		FbxNodeAttribute *m_nativeAttribute;
 	};
-
-
 }

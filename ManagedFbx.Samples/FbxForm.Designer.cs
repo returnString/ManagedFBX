@@ -27,43 +27,38 @@
 	private void InitializeComponent()
 	{
 			this.uxFbxTree = new System.Windows.Forms.TreeView();
-			this.uxTranslationLabel = new System.Windows.Forms.Label();
-			this.uxAttrLabel = new System.Windows.Forms.Label();
+			this.uxNodeInfo = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// uxFbxTree
 			// 
+			this.uxFbxTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
 			this.uxFbxTree.Location = new System.Drawing.Point(12, 12);
 			this.uxFbxTree.Name = "uxFbxTree";
-			this.uxFbxTree.Size = new System.Drawing.Size(403, 490);
+			this.uxFbxTree.Size = new System.Drawing.Size(403, 619);
 			this.uxFbxTree.TabIndex = 0;
 			this.uxFbxTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OnTreeSelect);
 			// 
-			// uxTranslationLabel
+			// uxNodeInfo
 			// 
-			this.uxTranslationLabel.AutoSize = true;
-			this.uxTranslationLabel.Location = new System.Drawing.Point(421, 12);
-			this.uxTranslationLabel.Name = "uxTranslationLabel";
-			this.uxTranslationLabel.Size = new System.Drawing.Size(24, 13);
-			this.uxTranslationLabel.TabIndex = 1;
-			this.uxTranslationLabel.Text = "pos";
-			// 
-			// uxAttrLabel
-			// 
-			this.uxAttrLabel.AutoSize = true;
-			this.uxAttrLabel.Location = new System.Drawing.Point(421, 84);
-			this.uxAttrLabel.Name = "uxAttrLabel";
-			this.uxAttrLabel.Size = new System.Drawing.Size(24, 13);
-			this.uxAttrLabel.TabIndex = 2;
-			this.uxAttrLabel.Text = "pos";
+			this.uxNodeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.uxNodeInfo.Location = new System.Drawing.Point(421, 12);
+			this.uxNodeInfo.Multiline = true;
+			this.uxNodeInfo.Name = "uxNodeInfo";
+			this.uxNodeInfo.ReadOnly = true;
+			this.uxNodeInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.uxNodeInfo.Size = new System.Drawing.Size(565, 619);
+			this.uxNodeInfo.TabIndex = 3;
 			// 
 			// FbxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(839, 514);
-			this.Controls.Add(this.uxAttrLabel);
-			this.Controls.Add(this.uxTranslationLabel);
+			this.ClientSize = new System.Drawing.Size(998, 643);
+			this.Controls.Add(this.uxNodeInfo);
 			this.Controls.Add(this.uxFbxTree);
 			this.Name = "FbxForm";
 			this.Text = "FbxForm";
@@ -75,7 +70,6 @@
 	#endregion
 
 	private System.Windows.Forms.TreeView uxFbxTree;
-	private System.Windows.Forms.Label uxTranslationLabel;
-	private System.Windows.Forms.Label uxAttrLabel;
+	private System.Windows.Forms.TextBox uxNodeInfo;
 
 }

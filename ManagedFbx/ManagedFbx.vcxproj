@@ -90,8 +90,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="NativeString.h" />
     <ClInclude Include="FbxException.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="Properties.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneNode.h" />
@@ -101,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="NodeAttribute.cpp" />
