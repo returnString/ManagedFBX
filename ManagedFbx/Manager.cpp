@@ -3,27 +3,18 @@
 
 using namespace ManagedFbx;
 
-Manager::Manager()
+static Manager::Manager()
 {
-	m_pNativeManager = FbxManager::Create();
-	m_pNativeImporter = FbxImporter::Create(m_pNativeManager, "Importer");
+	m_nativeManager = FbxManager::Create();
+	m_nativeImporter = FbxImporter::Create(m_nativeManager, "Importer");
 }
 
-Scene ^Manager::CreateScene(string ^name)
+FbxManager *Manager::GetFbxManager()
 {
-	auto nativeScene = FbxScene::Create(m_pNativeManager, StringHelper::ToNative(name));
-	return gcnew Scene(nativeScene);
+	return m_nativeManager;
 }
 
-Scene ^Manager::ImportScene(string ^filename)
+FbxImporter *Manager::GetFbxImporter()
 {
-	bool success = m_pNativeImporter->Initialize(StringHelper::ToNative(filename));
-
-	if(!success)
-		throw gcnew FbxException("Failed to initialise the FBX importer: " + gcnew string(m_pNativeImporter->GetLastErrorString()));
-
-	auto nativeScene = FbxScene::Create(m_pNativeManager, "");
-	m_pNativeImporter->Import(nativeScene);
-
-	return gcnew Scene(nativeScene);
+	return m_nativeImporter;
 }

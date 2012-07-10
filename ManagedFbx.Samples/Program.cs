@@ -7,8 +7,7 @@ public class Program
 	[STAThread]
 	public static void Main()
 	{
-		var manager = new Manager();
-		var scene = manager.ImportScene("samplefile.fbx");
+		var scene = Scene.Import("samplefile.fbx");
 
 		Application.EnableVisualStyles();
 		Application.Run(new FbxForm(scene));

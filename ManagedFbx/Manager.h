@@ -4,16 +4,17 @@
 
 namespace ManagedFbx
 {
-	public ref class Manager
+	public ref class Manager abstract sealed
 	{
 	public:
-		Manager();
+		static Manager();
 
-		Scene ^CreateScene(string ^name);
-		Scene ^ImportScene(string ^filename);
+	internal:
+		static FbxManager *GetFbxManager();
+		static FbxImporter *GetFbxImporter();
 
 	private:
-		FbxManager *m_pNativeManager;
-		FbxImporter *m_pNativeImporter;
+		static FbxManager *m_nativeManager;
+		static FbxImporter *m_nativeImporter;
 	};
 }

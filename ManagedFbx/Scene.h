@@ -9,11 +9,11 @@ namespace ManagedFbx
 	public ref class Scene
 	{
 	public:
+		Scene(string ^name);
+		static Scene ^Import(string ^filepath);
+
 		property_r(SceneNode^, RootNode);
 		property_rw(string^, Name);
-
-	internal:
-		Scene(FbxScene *nativeScene);
 
 	private:
 		FbxScene *m_nativeScene;
