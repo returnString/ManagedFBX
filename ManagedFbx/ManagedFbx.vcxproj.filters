@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include=".\Manager.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneNode.cpp" />
+    <ClCompile Include="SceneNodeAttribute.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\NativeString.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\Manager.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="stdafx.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneNode.h" />
+    <ClInclude Include="Properties.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneNodeAttribute.h" />
+    <ClInclude Include="Vector.h">
+      <Filter>Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="FbxException.h">
+      <Filter>Exceptions</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{294b9ba4-ee57-4d5f-b87f-715a6ea77c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maths">
+      <UniqueIdentifier>{9015aafe-42e1-4b07-bda4-9dd023a1aeda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exceptions">
+      <UniqueIdentifier>{b6172554-dbf5-4472-89ce-76f3920496e0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
