@@ -7,7 +7,6 @@ public partial class FbxForm : Form
 	public FbxForm(Scene scene)
 	{
 		InitializeComponent();
-		AllowDrop = true;
 		Add(scene.RootNode, null);
 	}
 

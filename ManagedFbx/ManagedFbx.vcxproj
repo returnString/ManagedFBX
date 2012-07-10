@@ -48,7 +48,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2013.2\include\;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2013.2\lib\vs2010\x86;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)\Build</OutDir>
+    <OutDir>$(SolutionDir)Build</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -89,21 +89,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include=".\Manager.h" />
-    <ClInclude Include=".\NativeString.h" />
+    <ClInclude Include="Manager.h" />
+    <ClInclude Include="NativeString.h" />
     <ClInclude Include="FbxException.h" />
     <ClInclude Include="Properties.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneNode.h" />
-    <ClInclude Include="SceneNodeAttribute.h" />
+    <ClInclude Include="NodeAttribute.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include=".\Manager.cpp" />
+    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneNode.cpp" />
-    <ClCompile Include="SceneNodeAttribute.cpp" />
+    <ClCompile Include="NodeAttribute.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

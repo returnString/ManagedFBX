@@ -26,14 +26,14 @@ namespace ManagedFbx
 		Subdiv = FbxNodeAttribute::eSubDiv
 	};
 
-	public ref class SceneNodeAttribute
+	public ref class NodeAttribute
 	{
 	public:
 		property_r(NodeAttributeType^, AttributeType);
 		property_rw(string^, Name);
 
 	internal:
-		SceneNodeAttribute(FbxNodeAttribute *nativeAttr);
+		NodeAttribute(FbxNodeAttribute *nativeAttr);
 
 	private:
 		FbxNodeAttribute *m_nativeAttribute;

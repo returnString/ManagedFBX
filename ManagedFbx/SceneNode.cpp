@@ -8,7 +8,7 @@ SceneNode::SceneNode(FbxNode *node)
 	m_nativeNode = node;
 
 	m_children = gcnew List<SceneNode^>();
-	m_attributes = gcnew List<SceneNodeAttribute^>();
+	m_attributes = gcnew List<NodeAttribute^>();
 
 	for(int i = 0; i < m_nativeNode->GetChildCount(); i++)
 	{
@@ -19,7 +19,7 @@ SceneNode::SceneNode(FbxNode *node)
 	for(int i = 0; i < m_nativeNode->GetNodeAttributeCount(); i++)
 	{
 		auto attr = m_nativeNode->GetNodeAttributeByIndex(i);
-		m_attributes->Add(gcnew SceneNodeAttribute(attr));
+		m_attributes->Add(gcnew NodeAttribute(attr));
 	}
 }
 
@@ -28,7 +28,7 @@ IEnumerable<SceneNode^>^ SceneNode::ChildNodes::get()
 	return m_children->AsReadOnly();
 }
 
-IEnumerable<SceneNodeAttribute^>^ SceneNode::Attributes::get()
+IEnumerable<NodeAttribute^>^ SceneNode::Attributes::get()
 {
 	return m_attributes->AsReadOnly();
 }

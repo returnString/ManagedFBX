@@ -7,7 +7,7 @@
       <Filter>Helpers</Filter>
     </ClCompile>
     <ClCompile Include="SceneNode.cpp" />
-    <ClCompile Include="SceneNodeAttribute.cpp" />
+    <ClCompile Include=".\NodeAttribute.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\NativeString.h">
@@ -22,13 +22,13 @@
     <ClInclude Include="Properties.h">
       <Filter>Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="SceneNodeAttribute.h" />
     <ClInclude Include="Vector.h">
       <Filter>Maths</Filter>
     </ClInclude>
     <ClInclude Include="FbxException.h">
       <Filter>Exceptions</Filter>
     </ClInclude>
+    <ClInclude Include=".\NodeAttribute.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Helpers">

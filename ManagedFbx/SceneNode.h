@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SceneNodeAttribute.h"
+#include "NodeAttribute.h"
 
 using namespace System::Collections::Generic;
 
@@ -11,7 +11,7 @@ namespace ManagedFbx
 	public:
 		property_rw(string^, Name);
 		property_r(IEnumerable<SceneNode^>^, ChildNodes);
-		property_r(IEnumerable<SceneNodeAttribute^>^, Attributes);
+		property_r(IEnumerable<NodeAttribute^>^, Attributes);
 		
 		property_rw(Vector3, Position);
 		property_rw(Vector3, Rotation);
@@ -25,6 +25,6 @@ namespace ManagedFbx
 	private:
 		FbxNode *m_nativeNode;
 		List<SceneNode^> ^m_children;
-		List<SceneNodeAttribute^> ^m_attributes;
+		List<NodeAttribute^> ^m_attributes;
 	};
 }

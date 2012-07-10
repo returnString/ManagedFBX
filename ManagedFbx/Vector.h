@@ -39,4 +39,25 @@ namespace ManagedFbx
 			Z = fbxDouble[2];
 		}
 	};
+
+	public value struct Vector4
+	{
+		Vector4(double w, double x, double y, double z)
+		{
+			W = w;
+			X = x;
+			Y = y;
+			Z = z;
+		}
+
+		operator FbxDouble4()
+		{
+			return FbxDouble4(X, Y, Z, W);
+		}
+
+		property double W;
+		property double X;
+		property double Y;
+		property double Z;
+	};
 }
