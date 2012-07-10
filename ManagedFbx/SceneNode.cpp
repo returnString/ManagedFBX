@@ -6,18 +6,31 @@ using namespace ManagedFbx;
 SceneNode::SceneNode(FbxNode *node)
 {
 	m_nativeNode = node;
+
 	m_children = gcnew List<SceneNode^>();
+	m_attributes = gcnew List<SceneNodeAttribute^>();
 
 	for(int i = 0; i < m_nativeNode->GetChildCount(); i++)
 	{
 		auto sub = m_nativeNode->GetChild(i);
 		m_children->Add(gcnew SceneNode(sub));
 	}
+
+	for(int i = 0; i < m_nativeNode->GetNodeAttributeCount(); i++)
+	{
+		auto attr = m_nativeNode->GetNodeAttributeByIndex(i);
+		m_attributes->Add(gcnew SceneNodeAttribute(attr));
+	}
 }
 
 IEnumerable<SceneNode^>^ SceneNode::ChildNodes::get()
 {
 	return m_children->AsReadOnly();
+}
+
+IEnumerable<SceneNodeAttribute^>^ SceneNode::Attributes::get()
+{
+	return m_attributes->AsReadOnly();
 }
 
 string ^SceneNode::Name::get()

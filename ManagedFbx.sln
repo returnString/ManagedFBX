@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ManagedFbx", "ManagedFbx\ManagedFbx.vcxproj", "{163D9B5E-1A69-4821-89DE-298736F2C14E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedFbx.Samples", "ManagedFbx.Samples\ManagedFbx.Samples.csproj", "{78BA3050-B035-46F5-AAC2-4B9B8A3CFDDC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{163D9B5E-1A69-4821-89DE-298736F2C14E} = {163D9B5E-1A69-4821-89DE-298736F2C14E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

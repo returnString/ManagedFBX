@@ -28,6 +28,7 @@
 	{
 			this.uxFbxTree = new System.Windows.Forms.TreeView();
 			this.uxTranslationLabel = new System.Windows.Forms.Label();
+			this.uxAttrLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// uxFbxTree
@@ -47,11 +48,21 @@
 			this.uxTranslationLabel.TabIndex = 1;
 			this.uxTranslationLabel.Text = "pos";
 			// 
+			// uxAttrLabel
+			// 
+			this.uxAttrLabel.AutoSize = true;
+			this.uxAttrLabel.Location = new System.Drawing.Point(421, 84);
+			this.uxAttrLabel.Name = "uxAttrLabel";
+			this.uxAttrLabel.Size = new System.Drawing.Size(24, 13);
+			this.uxAttrLabel.TabIndex = 2;
+			this.uxAttrLabel.Text = "pos";
+			// 
 			// FbxForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(839, 514);
+			this.Controls.Add(this.uxAttrLabel);
 			this.Controls.Add(this.uxTranslationLabel);
 			this.Controls.Add(this.uxFbxTree);
 			this.Name = "FbxForm";
@@ -65,5 +76,6 @@
 
 	private System.Windows.Forms.TreeView uxFbxTree;
 	private System.Windows.Forms.Label uxTranslationLabel;
+	private System.Windows.Forms.Label uxAttrLabel;
 
 }

@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System.Linq;
 using System.Windows.Forms;
 using ManagedFbx;
 
@@ -35,5 +35,11 @@ public partial class FbxForm : Form
 			return;
 
 		uxTranslationLabel.Text = string.Format("Position: {0}\nRotation: {1}\nScale: {2}", node.Position, node.Rotation, node.Scale);
+		uxAttrLabel.Text = string.Format("Found {0} attributes", node.Attributes.Count());
+
+		foreach(var attr in node.Attributes)
+		{
+			uxAttrLabel.Text += "\n" + attr.AttributeType;
+		}
 	}
 }
