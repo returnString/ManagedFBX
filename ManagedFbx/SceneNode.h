@@ -19,8 +19,8 @@ namespace ManagedFbx
 		property_rw(Vector3, Rotation);
 		property_rw(Vector3, Scale);
 
-		property Mesh^ Mesh { ManagedFbx::Mesh ^get(); }
-		property Light^ Light { ManagedFbx::Light ^get(); }
+		property_r(ManagedFbx::Mesh^, Mesh);
+		property_r(ManagedFbx::Light^, Light);
 
 		void AddChild(SceneNode ^node);
 
