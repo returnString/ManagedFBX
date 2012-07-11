@@ -9,6 +9,7 @@ namespace ManagedFbx
 	public:
 		property_r(array<Polygon>^, Polygons);
 		property_r(array<Vector3>^, Vertices);
+		property_r(array<Vector3>^, Normals);
 
 		property_r(bool, HasOnlyTriangles);
 

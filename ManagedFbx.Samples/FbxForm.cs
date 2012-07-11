@@ -61,6 +61,7 @@ public partial class FbxForm : Form
 						if(!mesh.HasOnlyTriangles)
 						{
 							builder.Append("Quads/ngons found in list of total {0} polygons, triangulating", mesh.Polygons.Length);
+							NewLine();
 							mesh = mesh.Triangulate();
 						}
 
@@ -82,8 +83,18 @@ public partial class FbxForm : Form
 
 						for(var i = 0; i < mesh.Vertices.Length; i++)
 						{
-							var vertex =  mesh.Vertices[i];
+							var vertex = mesh.Vertices[i];
 							builder.Append("{0}:\t{1}\t{2}\t{3}", i, Math.Round(vertex.X, 2), Math.Round(vertex.Y, 2), Math.Round(vertex.Z, 2));
+						}
+
+						NewLine();
+						builder.Append("Found {0} vertex normals", mesh.Normals.Length);
+						NewLine();
+
+						for(var i = 0; i < mesh.Normals.Length; i++)
+						{
+							var normal = mesh.Normals[i];
+							builder.Append("{0}:\t{1}\t{2}\t{3}", i, Math.Round(normal.X, 2), Math.Round(normal.Y, 2), Math.Round(normal.Z, 2));
 						}
 					}
 					break;
@@ -130,7 +141,7 @@ public partial class FbxForm : Form
 
 	private void SetTitle(string filename)
 	{
-		Text = "FbxForm - " + filename;
+		Text = "FBX Viewer - " + filename;
 	}
 
 	private Scene m_scene;

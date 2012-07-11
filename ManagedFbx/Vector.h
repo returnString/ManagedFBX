@@ -40,6 +40,28 @@ namespace ManagedFbx
 		}
 	};
 
+	public value struct Vector2
+	{
+		Vector2(double x, double y)
+		{
+			X = x;
+			Y = y;
+		}
+
+		operator FbxDouble2()
+		{
+			return FbxDouble2(X, Y);
+		}
+
+		virtual String ^ToString() override
+		{
+			return String::Format("{0}, {1}", Math::Round(X, 3), Math::Round(Y, 3));
+		}
+
+		property double X;
+		property double Y;
+	};
+
 	public value struct Vector4
 	{
 		Vector4(double w, double x, double y, double z)
@@ -53,6 +75,11 @@ namespace ManagedFbx
 		operator FbxDouble4()
 		{
 			return FbxDouble4(X, Y, Z, W);
+		}
+
+		virtual String ^ToString() override
+		{
+			return String::Format("{0}, {1}, {2}, {3}", Math::Round(W, 3), Math::Round(X, 3), Math::Round(Y, 3), Math::Round(Z, 3));
 		}
 
 		property double W;
