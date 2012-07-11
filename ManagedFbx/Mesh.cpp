@@ -1,11 +1,22 @@
 #include "stdafx.h"
 #include "Mesh.h"
+#include "Manager.h"
 
 using namespace ManagedFbx;
 
 Mesh::Mesh(FbxMesh *nativeMesh)
 {
 	m_nativeMesh = nativeMesh;
+}
+
+Mesh ^Mesh::Triangulate()
+{
+	return gcnew Mesh(Manager::GetGeomConverter()->TriangulateMesh(m_nativeMesh));
+}
+
+bool Mesh::HasOnlyTriangles::get()
+{
+	return m_nativeMesh->IsTriangleMesh();
 }
 
 array<ManagedFbx::Polygon> ^Mesh::Polygons::get()

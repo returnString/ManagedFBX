@@ -10,6 +10,10 @@ namespace ManagedFbx
 		property_r(array<Polygon>^, Polygons);
 		property_r(array<Vector3>^, Vertices);
 
+		property_r(bool, HasOnlyTriangles);
+
+		Mesh ^Triangulate();
+
 	internal:
 		Mesh(FbxMesh *nativeMesh);
 

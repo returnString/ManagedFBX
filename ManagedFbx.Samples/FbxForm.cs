@@ -57,7 +57,14 @@ public partial class FbxForm : Form
 				case NodeAttributeType.Mesh:
 					{
 						var mesh = node.Mesh;
-						builder.Append("Found {0} polygons", mesh.Polygons.Length);
+
+						if(!mesh.HasOnlyTriangles)
+						{
+							builder.Append("Quads/ngons found in list of total {0} polygons, triangulating", mesh.Polygons.Length);
+							mesh = mesh.Triangulate();
+						}
+
+						builder.Append("Found {0} triangles", mesh.Polygons.Length);
 						NewLine();
 
 						for(var i = 0; i < mesh.Polygons.Length; i++)

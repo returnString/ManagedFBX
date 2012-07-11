@@ -11,10 +11,12 @@ namespace ManagedFbx
 		static FbxManager *GetInstance();
 		static FbxImporter *GetImporter();
 		static FbxExporter *GetExporter();
+		static FbxGeometryConverter *GetGeomConverter();
 
 	private:
 		static FbxManager *m_nativeManager;
 		static FbxImporter *m_nativeImporter;
 		static FbxExporter *m_nativeExporter;
+		static FbxGeometryConverter *m_nativeGeomConv;
 	};
 }
