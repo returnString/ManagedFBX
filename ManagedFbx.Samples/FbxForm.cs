@@ -9,6 +9,7 @@ public partial class FbxForm : Form
 	public FbxForm()
 	{
 		InitializeComponent();
+		SetTitle("Untitled");
 	}
 
 	public void Add(SceneNode node, TreeNode parentNode)
@@ -104,6 +105,7 @@ public partial class FbxForm : Form
 			m_scene = Scene.Import(scenePath);
 			uxFbxTree.Nodes.Clear();
 			Add(m_scene.RootNode, null);
+			SetTitle(scenePath);
 		}
 	}
 
@@ -117,6 +119,11 @@ public partial class FbxForm : Form
 			var filePath = dialog.FileName;
 			m_scene.Save(filePath);
 		}
+	}
+
+	private void SetTitle(string filename)
+	{
+		Text = "FbxForm - " + filename;
 	}
 
 	private Scene m_scene;
