@@ -79,7 +79,12 @@ Vector3 SceneNode::Scale::get()
 	return Vector3(m_nativeNode->LclScaling.Get());
 }
 
-Mesh ^SceneNode::Model::get()
+Mesh ^SceneNode::Mesh::get()
 {
-	return gcnew Mesh(m_nativeNode->GetMesh());
+	return gcnew ManagedFbx::Mesh(m_nativeNode->GetMesh());
+}
+
+Light ^SceneNode::Light::get()
+{
+	return gcnew ManagedFbx::Light(m_nativeNode->GetLight());
 }

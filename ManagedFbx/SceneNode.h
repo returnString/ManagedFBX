@@ -2,6 +2,7 @@
 
 #include "NodeAttribute.h"
 #include "Mesh.h"
+#include "Light.h"
 
 using namespace System::Collections::Generic;
 
@@ -18,7 +19,8 @@ namespace ManagedFbx
 		property_rw(Vector3, Rotation);
 		property_rw(Vector3, Scale);
 
-		property_r(Mesh^, Model);
+		property Mesh^ Mesh { ManagedFbx::Mesh ^get(); }
+		property Light^ Light { ManagedFbx::Light ^get(); }
 
 		void AddChild(SceneNode ^node);
 

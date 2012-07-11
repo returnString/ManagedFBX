@@ -7,9 +7,16 @@
     </ClCompile>
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="NodeAttribute.cpp" />
-    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeAttribute.cpp">
+      <Filter>Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Attributes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h" />
@@ -27,12 +34,19 @@
       <Filter>Exceptions</Filter>
     </ClInclude>
     <ClInclude Include="Manager.h" />
-    <ClInclude Include="NodeAttribute.h" />
-    <ClInclude Include="Mesh.h" />
     <ClInclude Include="NativeString.h">
       <Filter>Helpers</Filter>
     </ClInclude>
     <ClInclude Include="Polygon.h" />
+    <ClInclude Include="Mesh.h">
+      <Filter>Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeAttribute.h">
+      <Filter>Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Attributes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Helpers">
@@ -43,6 +57,9 @@
     </Filter>
     <Filter Include="Exceptions">
       <UniqueIdentifier>{b6172554-dbf5-4472-89ce-76f3920496e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Attributes">
+      <UniqueIdentifier>{c1ff9a53-89e7-4ffe-874e-83ed0729ee95}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
