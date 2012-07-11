@@ -101,11 +101,25 @@ public partial class FbxForm : Form
 		if(dialog.ShowDialog() == DialogResult.OK)
 		{
 			var scenePath = dialog.FileName;
-			var scene = Scene.Import(scenePath);
+			m_scene = Scene.Import(scenePath);
 			uxFbxTree.Nodes.Clear();
-			Add(scene.RootNode, null);
+			Add(m_scene.RootNode, null);
 		}
 	}
+
+	private void SaveFile(object sender, EventArgs e)
+	{
+		var dialog = new SaveFileDialog();
+		dialog.Filter = "FBX file (*.fbx)|*.fbx";
+
+		if(dialog.ShowDialog() == DialogResult.OK)
+		{
+			var filePath = dialog.FileName;
+			m_scene.Save(filePath);
+		}
+	}
+
+	private Scene m_scene;
 }
 
 public static class StringBuilderExtensions

@@ -8,11 +8,13 @@ namespace ManagedFbx
 	{
 	public:
 		static Manager();
-		static FbxManager *GetFbxManager();
-		static FbxImporter *GetFbxImporter();
+		static FbxManager *GetInstance();
+		static FbxImporter *GetImporter();
+		static FbxExporter *GetExporter();
 
 	private:
 		static FbxManager *m_nativeManager;
 		static FbxImporter *m_nativeImporter;
+		static FbxExporter *m_nativeExporter;
 	};
 }
