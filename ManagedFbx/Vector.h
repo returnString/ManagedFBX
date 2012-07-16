@@ -60,6 +60,13 @@ namespace ManagedFbx
 
 		property double X;
 		property double Y;
+
+	internal:
+		Vector2(FbxVector2 vector)
+		{
+			X = vector[0];
+			Y = vector[1];
+		}
 	};
 
 	public value struct Vector4

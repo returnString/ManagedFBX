@@ -74,7 +74,7 @@ public partial class FbxForm : Form
 							foreach(var index in mesh.Polygons[i].Indices)
 								str += "\t" + index;
 
-							builder.Append("{0}:{1}", i, str);
+							builder.Append("{0}:{1}\t(UVs: {2}, {3}, {4})", i, str, mesh.GetUVIndex(i, 0), mesh.GetUVIndex(i, 1), mesh.GetUVIndex(i, 2));
 						}
 
 						NewLine();
@@ -95,6 +95,17 @@ public partial class FbxForm : Form
 						{
 							var normal = mesh.Normals[i];
 							builder.Append("{0}:\t{1}\t{2}\t{3}", i, Math.Round(normal.X, 2), Math.Round(normal.Y, 2), Math.Round(normal.Z, 2));
+						}
+
+
+						NewLine();
+						builder.Append("Found {0} UV coords", mesh.TextureCoords.Length);
+						NewLine();
+
+						for(var i = 0; i < mesh.TextureCoords.Length; i++)
+						{
+							var coord = mesh.TextureCoords[i];
+							builder.Append("{0}:\t{1}\t{2}", i, Math.Round(coord.X, 2), Math.Round(coord.Y, 2));
 						}
 					}
 					break;

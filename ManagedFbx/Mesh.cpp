@@ -56,20 +56,33 @@ array<Vector3> ^Mesh::Vertices::get()
 
 array<Vector3> ^Mesh::Normals::get()
 {
-	auto polies = Polygons;
-	int count = polies->Length;
-	auto list = gcnew List<Vector3>();
+	auto normals = m_nativeMesh->GetLayer(0)->GetNormals();
+	int count = normals->GetDirectArray().GetCount();
+	auto list = gcnew array<Vector3>(count);
 
 	for(int i = 0; i < count; i++)
 	{
-		auto indices = polies[i].Indices;
-		for(int j = 0; j < indices->Length; j++)
-		{
-			FbxVector4 normal;
-			m_nativeMesh->GetPolygonVertexNormal(i, j, normal);
-			list->Add(Vector3(normal));
-		}
+		list[i] = Vector3(normals->GetDirectArray().GetAt(i));
 	}
 
-	return list->ToArray();
+	return list;
+}
+
+array<Vector2> ^Mesh::TextureCoords::get()
+{
+	auto coords = m_nativeMesh->GetLayer(0)->GetUVs();
+	int count = coords->GetDirectArray().GetCount();
+	auto list = gcnew array<Vector2>(count);
+
+	for(int i = 0; i < count; i++)
+	{
+		list[i] = Vector2(coords->GetDirectArray().GetAt(i));
+	}
+
+	return list;
+}
+
+int Mesh::GetUVIndex(int polygon, int index)
+{
+	return m_nativeMesh->GetTextureUVIndex(polygon, index);
 }
