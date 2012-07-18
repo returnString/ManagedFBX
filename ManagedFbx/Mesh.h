@@ -16,6 +16,7 @@ namespace ManagedFbx
 
 		Mesh ^Triangulate();
 		int GetUVIndex(int polygon, int index);
+		Vector3 GetVertexNormal(int polygon, int index);
 
 	internal:
 		Mesh(FbxMesh *nativeMesh);

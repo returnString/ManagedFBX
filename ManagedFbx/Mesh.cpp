@@ -86,3 +86,10 @@ int Mesh::GetUVIndex(int polygon, int index)
 {
 	return m_nativeMesh->GetTextureUVIndex(polygon, index);
 }
+
+Vector3 Mesh::GetVertexNormal(int polygon, int index)
+{
+	FbxVector4 normal;
+	m_nativeMesh->GetPolygonVertexNormal(polygon, index, normal);
+	return Vector3(normal);
+}
