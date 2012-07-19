@@ -93,3 +93,17 @@ Vector3 Mesh::GetVertexNormal(int polygon, int index)
 	m_nativeMesh->GetPolygonVertexNormal(polygon, index, normal);
 	return Vector3(normal);
 }
+
+array<Colour> ^Mesh::VertexColours::get()
+{
+	auto colours = m_nativeMesh->GetLayer(0)->GetVertexColors();
+	int count = colours == nullptr ? 0 : colours->GetDirectArray().GetCount();
+	auto list = gcnew array<Colour>(count);
+
+	for(int i = 0; i < count; i++)
+	{
+		list[i] = Colour(colours->GetDirectArray().GetAt(i));
+	}
+
+	return list;
+}

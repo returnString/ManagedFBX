@@ -11,6 +11,7 @@ namespace ManagedFbx
 		property_r(array<Vector3>^, Vertices);
 		property_r(array<Vector3>^, Normals);
 		property_r(array<Vector2>^, TextureCoords);
+		property_r(array<Colour>^, VertexColours);
 
 		property_r(bool, HasOnlyTriangles);
 

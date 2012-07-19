@@ -7,6 +7,42 @@ using namespace System;
 
 namespace ManagedFbx
 {
+	public value struct Colour
+	{
+	public:
+		Colour(double r, double g, double b, double a)
+		{
+			R = r;
+			G = g;
+			B = b;
+			A = a;
+		}
+
+		property double R;
+		property double G;
+		property double B;
+		property double A;
+
+		operator FbxColor()
+		{
+			return FbxColor(R, G, B, A);
+		}
+
+		virtual String ^ToString() override
+		{
+			return String::Format("{0}, {1}, {2}, {3}", Math::Round(R, 3), Math::Round(G, 3), Math::Round(B, 3), Math::Round(A, 3));
+		}
+
+	internal:
+		Colour(FbxColor fbxColour)
+		{
+			R = fbxColour.mRed;
+			G = fbxColour.mGreen;
+			B = fbxColour.mBlue;
+			A = fbxColour.mAlpha;
+		}
+	};
+
 	public value struct Vector3
 	{
 	public:

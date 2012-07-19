@@ -97,7 +97,6 @@ public partial class FbxForm : Form
 							builder.Append("{0}:\t{1}\t{2}\t{3}", i, Math.Round(normal.X, 2), Math.Round(normal.Y, 2), Math.Round(normal.Z, 2));
 						}
 
-
 						NewLine();
 						builder.Append("Found {0} UV coords", mesh.TextureCoords.Length);
 						NewLine();
@@ -106,6 +105,16 @@ public partial class FbxForm : Form
 						{
 							var coord = mesh.TextureCoords[i];
 							builder.Append("{0}:\t{1}\t{2}", i, Math.Round(coord.X, 2), Math.Round(coord.Y, 2));
+						}
+
+						NewLine();
+						builder.Append("Found {0} vertex colours", mesh.VertexColours.Length);
+						NewLine();
+
+						for(var i = 0; i < mesh.VertexColours.Length; i++)
+						{
+							var colour = mesh.VertexColours[i];
+							builder.Append("{0}:\t{1}\t{2}\t{3}\t{4}", i, Math.Round(colour.R, 2), Math.Round(colour.G, 2), Math.Round(colour.B, 2), Math.Round(colour.A, 2));
 						}
 					}
 					break;
