@@ -53,3 +53,81 @@ SceneNode ^Scene::RootNode::get()
 {
 	return m_rootNode;
 }
+
+void Scene::Application::set(string ^value)
+{
+	m_nativeScene->GetSceneInfo()->LastSaved_ApplicationName.Set(StringHelper::ToNative(value));
+}
+
+string ^Scene::Application::get()
+{
+	auto name = m_nativeScene->GetSceneInfo()->LastSaved_ApplicationName.Get().Buffer();
+	return gcnew string(name);
+}
+
+string ^Scene::UnitType::get()
+{
+	return gcnew string(m_nativeScene->GetGlobalSettings().GetSystemUnit().GetScaleFactorAsString_Plurial());
+}
+
+void Scene::ConvertUnits(UnitConversionType units)
+{
+	switch(units)
+	{
+	case UnitConversionType::Metres:
+		FbxSystemUnit::m.ConvertScene(m_nativeScene);
+		break;
+
+	case UnitConversionType::Centimetres:
+		FbxSystemUnit::cm.ConvertScene(m_nativeScene);
+		break;
+
+	default:
+		throw gcnew NotImplementedException("The supplied unit type is not currently supported for conversion.");
+	}
+}
+
+void Scene::ConvertAxes(AxisConversionType axis)
+{
+	switch(axis)
+	{
+	case AxisConversionType::Max:
+		FbxAxisSystem::Max.ConvertScene(m_nativeScene);
+		break;
+
+	case AxisConversionType::MayaYUp:
+		FbxAxisSystem::MayaYUp.ConvertScene(m_nativeScene);
+		break;
+
+	case AxisConversionType::MayaZUp:
+		FbxAxisSystem::MayaZUp.ConvertScene(m_nativeScene);
+		break;
+
+	default:
+		throw gcnew NotImplementedException("The supplied axis type is not currently supported for conversion.");
+	}
+}
+
+void Scene::BakeTransform(SceneNode ^node)
+{
+	for each(SceneNode ^node in node->ChildNodes)
+		BakeTransform(node);
+
+	auto native = node->m_nativeNode;
+	auto mesh = native->GetMesh();
+
+	if(!mesh)
+		return;
+
+	FbxAMatrix geometry(native->GetGeometricTranslation(FbxNode::eSourcePivot),
+		native->GetGeometricRotation(FbxNode::eSourcePivot),
+		native->GetGeometricScaling(FbxNode::eSourcePivot));
+
+	auto total = m_nativeScene->GetEvaluator()->GetNodeGlobalTransform(native) * geometry;
+
+	for(int i = 0; i < mesh->GetControlPointsCount(); i++)
+	{
+		auto pos = mesh->GetControlPointAt(i);
+		mesh->SetControlPointAt(total.MultT(pos), i);
+	}
+}

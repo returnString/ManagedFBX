@@ -66,6 +66,14 @@ namespace ManagedFbx
 		{
 			return String::Format("{0}, {1}, {2}", Math::Round(X, 3), Math::Round(Y, 3), Math::Round(Z, 3));
 		}
+		
+		static Vector3 operator *(Vector3 self, float value)
+		{
+			self.X *= value;
+			self.Y *= value;
+			self.Z *= value;
+			return self;
+		}
 
 	internal:
 		Vector3(FbxDouble3 fbxDouble)

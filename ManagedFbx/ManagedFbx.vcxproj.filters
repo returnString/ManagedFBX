@@ -47,6 +47,7 @@
     <ClInclude Include="Light.h">
       <Filter>Attributes</Filter>
     </ClInclude>
+    <ClInclude Include=".\ConversionTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Helpers">

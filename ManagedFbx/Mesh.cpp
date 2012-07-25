@@ -61,9 +61,7 @@ array<Vector3> ^Mesh::Normals::get()
 	auto list = gcnew array<Vector3>(count);
 
 	for(int i = 0; i < count; i++)
-	{
 		list[i] = Vector3(normals->GetDirectArray().GetAt(i));
-	}
 
 	return list;
 }
@@ -71,13 +69,23 @@ array<Vector3> ^Mesh::Normals::get()
 array<Vector2> ^Mesh::TextureCoords::get()
 {
 	auto coords = m_nativeMesh->GetLayer(0)->GetUVs();
-	int count = coords->GetDirectArray().GetCount();
+	int count = coords == nullptr ? 0 : coords->GetDirectArray().GetCount();
 	auto list = gcnew array<Vector2>(count);
 
 	for(int i = 0; i < count; i++)
-	{
 		list[i] = Vector2(coords->GetDirectArray().GetAt(i));
-	}
+
+	return list;
+}
+
+array<int> ^Mesh::MaterialIDs::get()
+{
+	auto materials = m_nativeMesh->GetLayer(0)->GetMaterials();
+	int count = materials == nullptr ? 0 : materials->GetIndexArray().GetCount();
+	auto list = gcnew array<int>(count);
+
+	for(int i = 0; i < count; i++)
+		list[i] = materials->GetIndexArray().GetAt(i);
 
 	return list;
 }
@@ -101,9 +109,7 @@ array<Colour> ^Mesh::VertexColours::get()
 	auto list = gcnew array<Colour>(count);
 
 	for(int i = 0; i < count; i++)
-	{
 		list[i] = Colour(colours->GetDirectArray().GetAt(i));
-	}
 
 	return list;
 }

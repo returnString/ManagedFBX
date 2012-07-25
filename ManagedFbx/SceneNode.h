@@ -61,9 +61,9 @@ namespace ManagedFbx
 
 	internal:
 		SceneNode(FbxNode *node);
+		FbxNode *m_nativeNode;
 
 	private:
-		FbxNode *m_nativeNode;
 		List<SceneNode^> ^m_children;
 		List<NodeAttribute^> ^m_attributes;
 	};
