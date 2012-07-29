@@ -111,6 +111,7 @@
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Mesh.cpp" />

@@ -78,6 +78,13 @@ array<Vector2> ^Mesh::TextureCoords::get()
 	return list;
 }
 
+int Mesh::GetMaterialId(int polygon)
+{
+	FbxLayerElementArrayTemplate<int> *materials = nullptr;
+	m_nativeMesh->GetMaterialIndices(&materials);
+	return materials->GetAt(polygon);
+}
+
 array<int> ^Mesh::MaterialIDs::get()
 {
 	auto materials = m_nativeMesh->GetLayer(0)->GetMaterials();

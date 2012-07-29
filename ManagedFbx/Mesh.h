@@ -17,7 +17,9 @@ namespace ManagedFbx
 		property_r(bool, HasOnlyTriangles);
 
 		Mesh ^Triangulate();
+
 		int GetUVIndex(int polygon, int index);
+		int GetMaterialId(int polygon);
 		Vector3 GetVertexNormal(int polygon, int index);
 
 	internal:

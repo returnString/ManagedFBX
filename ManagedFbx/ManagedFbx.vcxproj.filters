@@ -17,6 +17,9 @@
     <ClCompile Include="Light.cpp">
       <Filter>Attributes</Filter>
     </ClCompile>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Properties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h" />
@@ -61,6 +64,9 @@
     </Filter>
     <Filter Include="Attributes">
       <UniqueIdentifier>{c1ff9a53-89e7-4ffe-874e-83ed0729ee95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Properties">
+      <UniqueIdentifier>{be407496-9238-483e-9e28-20a6d050c186}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

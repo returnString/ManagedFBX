@@ -74,7 +74,7 @@ public partial class FbxForm : Form
 							foreach(var index in mesh.Polygons[i].Indices)
 								str += "\t" + index;
 
-							builder.Append("{0}:{1}\t(UVs: {2}, {3}, {4})", i, str, mesh.GetUVIndex(i, 0), mesh.GetUVIndex(i, 1), mesh.GetUVIndex(i, 2));
+							builder.Append("{0}:{1}\t(UVs: {2}, {3}, {4}, Mat ID: {5})", i, str, mesh.GetUVIndex(i, 0), mesh.GetUVIndex(i, 1), mesh.GetUVIndex(i, 2), mesh.GetMaterialId(i));
 						}
 
 						NewLine();
@@ -115,6 +115,16 @@ public partial class FbxForm : Form
 						{
 							var colour = mesh.VertexColours[i];
 							builder.Append("{0}:\t{1}\t{2}\t{3}\t{4}", i, Math.Round(colour.R, 2), Math.Round(colour.G, 2), Math.Round(colour.B, 2), Math.Round(colour.A, 2));
+						}
+
+						NewLine();
+						builder.Append("Found {0} material IDs", mesh.MaterialIDs.Length);
+						NewLine();
+
+						for(var i = 0; i < mesh.MaterialIDs.Length; i++)
+						{
+							var id = mesh.MaterialIDs[i];
+							builder.Append("{0}:\t{1}", i.ToString(), id.ToString());
 						}
 					}
 					break;

@@ -41,7 +41,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
 			this.uxFbxTree.Location = new System.Drawing.Point(12, 27);
 			this.uxFbxTree.Name = "uxFbxTree";
-			this.uxFbxTree.Size = new System.Drawing.Size(403, 604);
+			this.uxFbxTree.Size = new System.Drawing.Size(285, 427);
 			this.uxFbxTree.TabIndex = 0;
 			this.uxFbxTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.OnTreeSelect);
 			// 
@@ -50,12 +50,12 @@
 			this.uxNodeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.uxNodeInfo.Location = new System.Drawing.Point(421, 27);
+			this.uxNodeInfo.Location = new System.Drawing.Point(303, 27);
 			this.uxNodeInfo.Multiline = true;
 			this.uxNodeInfo.Name = "uxNodeInfo";
 			this.uxNodeInfo.ReadOnly = true;
 			this.uxNodeInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.uxNodeInfo.Size = new System.Drawing.Size(565, 604);
+			this.uxNodeInfo.Size = new System.Drawing.Size(484, 427);
 			this.uxNodeInfo.TabIndex = 3;
 			this.uxNodeInfo.WordWrap = false;
 			// 
@@ -65,7 +65,7 @@
             this.fileToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(998, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(799, 24);
 			this.menuStrip1.TabIndex = 4;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -81,14 +81,14 @@
 			// openToolStripMenuItem
 			// 
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
 			this.openToolStripMenuItem.Text = "Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.LoadFile);
 			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
 			this.saveToolStripMenuItem.Text = "Save";
 			this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveFile);
 			// 
@@ -96,7 +96,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(998, 643);
+			this.ClientSize = new System.Drawing.Size(799, 466);
 			this.Controls.Add(this.uxNodeInfo);
 			this.Controls.Add(this.uxFbxTree);
 			this.Controls.Add(this.menuStrip1);
