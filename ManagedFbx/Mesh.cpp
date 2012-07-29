@@ -11,7 +11,9 @@ Mesh::Mesh(FbxMesh *nativeMesh)
 
 Mesh ^Mesh::Triangulate()
 {
-	return gcnew Mesh(Manager::GetGeomConverter()->TriangulateMesh(m_nativeMesh));
+	auto mesh = gcnew Mesh(Manager::GetGeomConverter()->TriangulateMesh(m_nativeMesh));
+	mesh->UVLayer = UVLayer;
+	return mesh;
 }
 
 bool Mesh::HasOnlyTriangles::get()
@@ -68,7 +70,7 @@ array<Vector3> ^Mesh::Normals::get()
 
 array<Vector2> ^Mesh::TextureCoords::get()
 {
-	auto coords = m_nativeMesh->GetLayer(0)->GetUVs();
+	auto coords = m_nativeMesh->GetLayer(UVLayer)->GetUVs();
 	int count = coords == nullptr ? 0 : coords->GetDirectArray().GetCount();
 	auto list = gcnew array<Vector2>(count);
 
