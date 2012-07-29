@@ -70,7 +70,12 @@ array<Vector3> ^Mesh::Normals::get()
 
 array<Vector2> ^Mesh::TextureCoords::get()
 {
-	auto coords = m_nativeMesh->GetLayer(UVLayer)->GetUVs();
+	auto layer = m_nativeMesh->GetLayer(UVLayer);
+
+	if(!layer)
+		return gcnew array<Vector2>(0);
+
+	auto coords = layer->GetUVs();
 	int count = coords == nullptr ? 0 : coords->GetDirectArray().GetCount();
 	auto list = gcnew array<Vector2>(count);
 
