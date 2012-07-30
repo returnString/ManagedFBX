@@ -58,7 +58,7 @@ public partial class FbxForm : Form
 					{
 						var mesh = node.Mesh;
 
-						if(!mesh.HasOnlyTriangles)
+						if(!mesh.Triangulated)
 						{
 							builder.Append("Quads/ngons found in list of total {0} polygons, triangulating", mesh.Polygons.Length);
 							NewLine();

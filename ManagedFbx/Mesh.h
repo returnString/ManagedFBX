@@ -13,7 +13,7 @@ namespace ManagedFbx
 		property_r(array<Vector2>^, TextureCoords);
 		property_r(array<Colour>^, VertexColours);
 		property_r(array<int>^, MaterialIDs);
-		property_r(bool, HasOnlyTriangles);
+		property_r(bool, Triangulated);
 		property int UVLayer;
 
 		Mesh ^Triangulate();

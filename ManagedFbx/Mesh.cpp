@@ -16,7 +16,7 @@ Mesh ^Mesh::Triangulate()
 	return mesh;
 }
 
-bool Mesh::HasOnlyTriangles::get()
+bool Mesh::Triangulated::get()
 {
 	return m_nativeMesh->IsTriangleMesh();
 }
