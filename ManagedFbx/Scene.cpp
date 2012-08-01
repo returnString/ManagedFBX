@@ -70,15 +70,15 @@ string ^Scene::UnitType::get()
 	return gcnew string(m_nativeScene->GetGlobalSettings().GetSystemUnit().GetScaleFactorAsString_Plurial());
 }
 
-void Scene::ConvertUnits(UnitConversionType units)
+void Scene::ConvertUnits(Unit units)
 {
 	switch(units)
 	{
-	case UnitConversionType::Metres:
+	case Unit::Metres:
 		FbxSystemUnit::m.ConvertScene(m_nativeScene);
 		break;
 
-	case UnitConversionType::Centimetres:
+	case Unit::Centimetres:
 		FbxSystemUnit::cm.ConvertScene(m_nativeScene);
 		break;
 
@@ -87,19 +87,19 @@ void Scene::ConvertUnits(UnitConversionType units)
 	}
 }
 
-void Scene::ConvertAxes(AxisConversionType axis)
+void Scene::ConvertAxes(AxisSystem axis)
 {
 	switch(axis)
 	{
-	case AxisConversionType::Max:
+	case AxisSystem::Max:
 		FbxAxisSystem::Max.ConvertScene(m_nativeScene);
 		break;
 
-	case AxisConversionType::MayaYUp:
+	case AxisSystem::MayaYUp:
 		FbxAxisSystem::MayaYUp.ConvertScene(m_nativeScene);
 		break;
 
-	case AxisConversionType::MayaZUp:
+	case AxisSystem::MayaZUp:
 		FbxAxisSystem::MayaZUp.ConvertScene(m_nativeScene);
 		break;
 

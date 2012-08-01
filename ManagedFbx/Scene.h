@@ -31,12 +31,12 @@ namespace ManagedFbx
 		/// <summary>
 		/// Converts the scene to a given unit system.
 		/// </summary>
-		void ConvertUnits(UnitConversionType units);
+		void ConvertUnits(Unit units);
 
 		/// <summary>
 		/// Converts the scene to a given orientation.
 		/// </summary>
-		void ConvertAxes(AxisConversionType axis);
+		void ConvertAxes(AxisSystem axis);
 
 		/// <summary>
 		/// Bakes node transforms into vertex positions.

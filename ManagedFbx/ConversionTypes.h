@@ -2,13 +2,13 @@
 
 namespace ManagedFbx
 {
-	public enum class UnitConversionType
+	public enum class Unit
 	{
 		Metres,
 		Centimetres
 	};
 
-	public enum class AxisConversionType
+	public enum class AxisSystem
 	{
 		Max,
 		MayaYUp,
